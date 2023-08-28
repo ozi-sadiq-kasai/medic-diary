@@ -1,32 +1,42 @@
-import { useState,useMemo } from 'react';
+import { useState,useMemo, useEffect } from 'react';
 import { PostPost,getPosts } from "../../Api/FireStoreApi"
 import '../../Sass/PostUpdate.scss'
 import ModalComponent from "./Modal"
-// import { getCurrentTimeStamp } from './Moment';
+import PostCard from './PostCard';
+import { getCurrentTimeStamp } from './Moment';
 
 export default function PostUpdate() {
+ let userEmail = localStorage.getItem('userEmail')
   const [modalOpen, setModalOpen] = useState(false);
   const [post, setPost] = useState("");
   const [allPosts,setAllPosts] = useState([])
 
-  
-
   // function in button to send post to firebase
   const sendPost = async ()=>{
-   await PostPost(post)
+   let object ={
+    post:post,
+    timeStamp: getCurrentTimeStamp('LLL'),
+    userEmail:userEmail,
+   }
+   await PostPost(object)
    await setModalOpen(false)
    await setPost("")
   }
 
-  useMemo(()=>{
-   getPosts(setAllPosts)
-  },[])
+  // useEffect(()=>{
+  //  getPosts(setAllPosts)
+  // },[])
+  useEffect(() => {
+  getPosts(setAllPosts, userEmail); // Pass the userEmail to getPosts
+}, []);
+
 
   return (
     <div className= "postupdate-main">
      <div className="post-update">
       <button className="postupdate-button" onClick={() => setModalOpen(true)}>How is your health today?</button>
      </div>
+
      <ModalComponent
       setPost={setPost} 
       modalOpen={modalOpen} 
@@ -38,8 +48,7 @@ export default function PostUpdate() {
         {allPosts.map((posts) => {
           return (
             <div key={posts.id}>
-             <p>{posts.post}</p>
-              {/* <PostsCard posts={posts} getEditData={getEditData} /> */}
+             <PostCard posts={posts}/>
             </div>
           );
         })}
@@ -47,53 +56,3 @@ export default function PostUpdate() {
     </div>
   );
 }
-
-
-
-
-// // PostUpdate.js
-// import React, { useState, useMemo, useEffect } from 'react';
-// import { PostPost, getPosts } from "../../Api/FireStoreApi"; // Adjust import path based on your project structure
-// import '../../Sass/PostUpdate.scss';
-// import ModalComponent from "./Modal";
-
-// export default function PostUpdate({ userEmail }) {
-//   const [modalOpen, setModalOpen] = useState(false);
-//   const [post, setPost] = useState("");
-//   const [allPosts, setAllPosts] = useState([]);
-
-//   const sendPost = async () => {
-//     try {
-//       await PostPost(post);
-//       setModalOpen(false);
-//       setPost("");
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     getPosts(userEmail, setAllPosts);
-//   }, [userEmail]);
-
-//   return (
-//     <div className="postupdate-main">
-//       <div className="post-update">
-//         <button className="postupdate-button" onClick={() => setModalOpen(true)}>
-//           How is your health today?
-//         </button>
-//       </div>
-//       <ModalComponent
-//         setPost={setPost}
-//         modalOpen={modalOpen}
-//         setModalOpen={setModalOpen}
-//         post={post}
-//         sendPost={sendPost}
-//       />
-
-//       {allPosts.map((post) => (
-//         <p key={post.id}>{post.post}</p>
-//       ))}
-//     </div>
-//   );
-// }

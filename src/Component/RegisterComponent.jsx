@@ -15,13 +15,14 @@ const RegisterComponent = () => {
  const handleRegister= async() => {
  try {
   let response = await  RegisterApi(input.email,input.password)
-   console.log(response.email)
+  localStorage.setItem("userEmail",response.user.email)
   setInput({
    email: "", // Clear email field
    password: "" // Clear password field
    });
    navigate('/post')
   toast.success('Account Created!')
+  console.log(response)
  } catch (error) {
     setInput({
         email: "", // Clear email field

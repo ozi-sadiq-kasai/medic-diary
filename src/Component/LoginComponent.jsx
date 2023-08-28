@@ -19,7 +19,7 @@ export default function LoginComponent() {
   try {
     const response = await LoginApi(input.email, input.password);
     toast.success("Login Successful");
-    console.log(response)
+    localStorage.setItem("userEmail",response.user.email)
     setInput({
       email: "",     // Clear email field
       password: ""   // Clear password field

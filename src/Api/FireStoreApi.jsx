@@ -1,14 +1,14 @@
 import { firestore } from "../firebaseConfig"
-import { addDoc, collection,onSnapshot } from "firebase/firestore"
+import { addDoc, collection,onSnapshot,query, where } from "firebase/firestore"
 import { toast } from "react-toastify"
 
 let dbRef = collection(firestore,"posts")
 
 // send post to firestore database
-export const PostPost=(post)=> { 
- let object ={
-  post:post,
- }
+export const PostPost=(object)=> { 
+ // let object ={
+ //  post:post,
+ // }
   addDoc(dbRef, object)
     .then(() => {
       toast.success("Post has been added successfully");
@@ -21,17 +21,30 @@ export const PostPost=(post)=> {
 
 
 // get post from firestore database
-export const getPosts = (setAllPosts) =>{
- onSnapshot(dbRef,(response)=>{
-  setAllPosts(response.docs.map((doc)=>{
-   return {...doc.data(),id:doc.id}
-  }))
- })}
+// export const getPosts = (setAllPosts) =>{
+//  onSnapshot(dbRef,(response)=>{
+//   setAllPosts(response.docs.map((doc)=>{
+//    return {...doc.data(),id:doc.id}
+//   }))
+//  })}
 
 
 
 
+export const getPosts = (setAllPosts, userEmail) => {
+  const userPostsQuery = query(
+    dbRef,
+    where("userEmail", "==", userEmail)
+  );
 
+  onSnapshot(userPostsQuery, (response) => {
+    setAllPosts(
+      response.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      })
+    );
+  });
+};
 
 
 
