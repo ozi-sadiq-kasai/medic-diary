@@ -7,28 +7,28 @@ import {
  } from "firebase/auth"
 import { auth } from "../firebaseConfig"
 
-export const LoginApi = async (email,password) => {
+export const LoginApi = (email,password) => {
  try {
- let response= await signInWithEmailAndPassword(auth,email,password)
+ let response= signInWithEmailAndPassword(auth,email,password)
  return response
  } catch (error) {
   return error
  }
 }
 
-export const GoogleSignInApi = async (email,password)=>{
- try {
-  let googleProvider = new GoogleAuthProvider()
-  let response = signInWithPopup(auth,googleProvider)
-  return response
- } catch (error) {
-  return error
- }
-}
+export const GoogleSignInApi = () => {
+  try {
+    let googleProvider = new GoogleAuthProvider();
+    let res = signInWithPopup(auth, googleProvider);
+    return res;
+  } catch (err) {
+    return err;
+  }
+};
 
-export const RegisterApi = async (email,password)=>{
+export const RegisterApi = (email,password)=>{
  try {
- let response = await createUserWithEmailAndPassword(auth,email,password)
+ let response = createUserWithEmailAndPassword(auth,email,password)
   return response
  } catch (error) {
   return error

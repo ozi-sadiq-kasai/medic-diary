@@ -1,5 +1,10 @@
-export const PostComponent = () => {
+import PostUpdate from "./Common/PostUpdate"
+
+export default function PostComponent() {
   return (
-    <div>PostComponent</div>
+    <div>
+     <PostUpdate/>
+     <h1>PostComponent</h1>
+    </div>
   )
 }
