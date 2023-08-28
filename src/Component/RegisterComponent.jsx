@@ -15,7 +15,7 @@ const RegisterComponent = () => {
  const handleRegister= async() => {
  try {
   let response = await  RegisterApi(input.email,input.password)
-  
+   console.log(response.email)
   setInput({
    email: "", // Clear email field
    password: "" // Clear password field

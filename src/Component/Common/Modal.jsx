@@ -6,7 +6,7 @@ const ModalComponent= ({modalOpen,setModalOpen,setPost,post,sendPost}) => {
       <Modal
         title="How is your health today?"
         centered
-        visible={modalOpen}
+        open={modalOpen}
         onOk={() => setModalOpen(false)}
         onCancel={() => setModalOpen(false)}
         footer={[
