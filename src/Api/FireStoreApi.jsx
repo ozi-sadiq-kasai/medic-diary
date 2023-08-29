@@ -1,14 +1,13 @@
 import { firestore } from "../firebaseConfig"
 import { addDoc, collection,onSnapshot,query, where } from "firebase/firestore"
+import { useRef } from "react"
 import { toast } from "react-toastify"
 
 let dbRef = collection(firestore,"posts")
+let userRef = collection(firestore,"users")
 
 // send post to firestore database
 export const PostPost=(object)=> { 
- // let object ={
- //  post:post,
- // }
   addDoc(dbRef, object)
     .then(() => {
       toast.success("Post has been added successfully");
@@ -30,14 +29,13 @@ export const PostPost=(object)=> {
 
 
 
-
+//get post from firestore database based on email
 export const getPosts = (setAllPosts, userEmail) => {
   const userPostsQuery = query(
     dbRef,
     where("userEmail", "==", userEmail)
   );
-
-  onSnapshot(userPostsQuery, (response) => {
+   onSnapshot(userPostsQuery, (response) => {
     setAllPosts(
       response.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
@@ -46,41 +44,26 @@ export const getPosts = (setAllPosts, userEmail) => {
   });
 };
 
+// post user data to firestore
+export const postUserData = (object) =>{
+ addDoc(userRef,object)
+ .then(() =>{})
+ .catch((err)=>{
+  console.log(err)
+ })
+}
 
-
-
-
-
-
-
-
-
-
-
-
-// FirebaseApi.js
-// import { firestore } from "../firebaseConfig";
-// import { addDoc, collection, query, where, onSnapshot } from "firebase/firestore";
-
-// const dbRef = collection(firestore, "posts");
-
-// export const PostPost = (post) => {
-//   const object = {
-//     post: post,
-//   };
-
-//   return addDoc(dbRef, object);
-// };
-
-// export const getPosts = (userEmail, setAllPosts) => {
-//   const q = query(dbRef, where("userEmail", "==", userEmail));
-
-//   onSnapshot(q, (response) => {
-//     setAllPosts(
-//       response.docs.map((doc) => {
-//         return { ...doc.data(), id: doc.id };
-//       })
-//     );
-//   });
-// };
+// get user data from firestore
+export const getCurrentUser = (setCurrentUser) => {
+ let currEmail = localStorage.getItem('userEmail')
+ onSnapshot(userRef, (response)=>{
+  setCurrentUser(
+   response.docs.map((docs)=>{
+    return {...docs.data(),userId:docs.id}
+   }).filter((item)=>{
+    return item.email ===currEmail
+   })[0]
+  )
+ })
+}
 

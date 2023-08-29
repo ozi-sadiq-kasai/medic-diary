@@ -1,9 +1,9 @@
 import PostUpdate from "./Common/PostUpdate"
 
-export default function PostComponent() {
+export default function PostComponent({currentUser}) {
   return (
     <div>
-     <PostUpdate/>
+     <PostUpdate currentUser={currentUser}/>
     </div>
   )
 }

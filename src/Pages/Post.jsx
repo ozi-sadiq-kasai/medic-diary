@@ -5,24 +5,35 @@ import { auth } from "../firebaseConfig"
 import { useNavigate } from "react-router-dom";
 import Topbar from "../Component/Common/Topbar";
 import Loader from "../Component/Common/Loader";
+import {getCurrentUser } from "../Api/FireStoreApi"
+
+
 
 export default function Post() {
- const [loading, setLoading] = useState(false)
+ const [currentUser,setCurrentUser] =useState({})
+ const [loading, setLoading] = useState(true)
 let navigate = useNavigate()
+
 useEffect(()=>{
- onAuthStateChanged(auth,(res)=>{
+ const unsubscribe= onAuthStateChanged(auth,(res)=>{
  if (!res?.accessToken){
   navigate("/")
+ }else{
+  setLoading(false)
  }
  })
+ getCurrentUser(setCurrentUser)
+ return () => unsubscribe();
 },[])
-
-
-  return (
-    <div>
-     <Topbar/>
-     <PostComponent/>
-    
-    </div>
-  )
+return(
+<>
+{loading ? <Loader/> :(
+ <>
+   <Topbar />
+   <PostComponent currentUser={currentUser}/>
+ </>
+)}
+</> 
+)
 }
+

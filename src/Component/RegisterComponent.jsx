@@ -2,6 +2,7 @@ import { RegisterApi } from "../Api/LoginApi"
 import { useState } from "react"
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { postUserData } from "../Api/FireStoreApi";
 
 const RegisterComponent = () => {
  const navigate = useNavigate();
@@ -15,26 +16,39 @@ const RegisterComponent = () => {
  const handleRegister= async() => {
  try {
   let response = await  RegisterApi(input.email,input.password)
+  toast.success('Account Created!')
+  // send data to user collection in firestore
+  postUserData({name:input.name,email:input.email,})
   localStorage.setItem("userEmail",response.user.email)
   setInput({
-   email: "", // Clear email field
-   password: "" // Clear password field
+   name:"",
+   email: "", 
+   password: ""
    });
-   navigate('/post')
-  toast.success('Account Created!')
-  console.log(response)
- } catch (error) {
+  navigate('/post')
+  
+  } catch (err) {
     setInput({
-        email: "", // Clear email field
-        password: "" // Clear password field
+        name:"",
+        email: "", 
+        password: "" 
       });
-  toast.error('Cannot Create your Account')
- }}
+     toast.error('Cannot Create your Account')
+     }
+    }
+
 
 
   return (
     <div>RegisterComponent
      <div className="login-inputs"> 
+      <input 
+       type="text"
+       name="name"
+       placeholder="Enter FullName"
+       onChange={handleInputChange}
+       value={input.name}
+       />
       <input 
        type="email"
        name="email"

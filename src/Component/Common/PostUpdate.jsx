@@ -4,12 +4,17 @@ import '../../Sass/PostUpdate.scss'
 import ModalComponent from "./Modal"
 import PostCard from './PostCard';
 import { getCurrentTimeStamp } from './Moment';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function PostUpdate() {
+export default function PostUpdate({currentUser}) {
  let userEmail = localStorage.getItem('userEmail')
   const [modalOpen, setModalOpen] = useState(false);
   const [post, setPost] = useState("");
   const [allPosts,setAllPosts] = useState([])
+
+ // generate Uuid function
+ const generatedUuid = uuidv4()
+
 
   // function in button to send post to firebase
   const sendPost = async ()=>{
@@ -17,7 +22,10 @@ export default function PostUpdate() {
     post:post,
     timeStamp: getCurrentTimeStamp('LLL'),
     userEmail:userEmail,
+    userName:currentUser.name,
+    postId:generatedUuid
    }
+    
    await PostPost(object)
    await setModalOpen(false)
    await setPost("")
@@ -29,6 +37,7 @@ export default function PostUpdate() {
   useEffect(() => {
   getPosts(setAllPosts, userEmail); // Pass the userEmail to getPosts
 }, []);
+
 
 
   return (

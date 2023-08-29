@@ -1,5 +1,5 @@
-// import { Divider } from 'antd'
 import '../../Sass/PostCard.scss'
+
 export default function PostCard({posts}) {
    const formattedDate = new Date(posts.timeStamp).toLocaleString('en-US', {
     year: 'numeric',
@@ -14,6 +14,7 @@ export default function PostCard({posts}) {
 
     <p>{posts.post}</p>
      <p>{formattedDate}</p>
+     <p>{posts.userName}</p>
     </div>
    
    
