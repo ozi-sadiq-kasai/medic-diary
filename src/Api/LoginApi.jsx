@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
  // GoogleAuthProvider,
  // signInWithPopup,
+ signOut
 
  } from "firebase/auth"
 import { auth } from "../firebaseConfig"
@@ -32,5 +33,13 @@ export const RegisterApi = (email,password)=>{
   return response
  } catch (error) {
   return error
+ }
+}
+
+export const onLogout = () =>{
+ try {
+  signOut(auth)
+ } catch (error) {
+  
  }
 }
