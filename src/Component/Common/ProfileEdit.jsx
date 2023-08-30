@@ -11,8 +11,9 @@ export default function ProfileEdit({onEdit,currentUser}) {
  let input = {[name]:value}
   setEditInputs((prevInputs) => ({ ...prevInputs, ...input }));
  }
- const updateProfileData = () =>{
- editProfile(currentUser?.id,editInputs)
+ const updateProfileData = async() =>{
+ await editProfile(currentUser?.id,editInputs)
+ await onEdit()
  }
   return (
     <div>ProfileEdit

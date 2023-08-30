@@ -9,6 +9,9 @@ export default function ProfileCard({currentUser,onEdit}) {
      </div>
      <h3>{currentUser.name}</h3>
      <p>{currentUser.email}</p>
+     <p>{currentUser.age}</p>
+     <p>{currentUser.gender}</p>
+ 
     </div>
   </>
   )
