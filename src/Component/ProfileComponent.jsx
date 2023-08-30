@@ -1,17 +1,16 @@
-import {useMemo,useState} from 'react'
-import { getCurrentUser } from '../Api/FireStoreApi'
+import React, { useState } from "react";
+import ProfileCard from "./Common/ProfileCard";
+import ProfileEdit from "./Common/ProfileEdit";
 
+export default function ProfileComponent({ currentUser }) {
+ const [isEdit,setIsEdit] = useState(false)
 
-
-export default function ProfileComponent() {
- const [currentUser,setCurrentUser] = useState('')
-console.log(currentUser)
- useMemo(() =>{
-  getCurrentUser(setCurrentUser)
- },[])
+ const onEdit = () => {
+  setIsEdit(!isEdit)
+ }
   return (
     <div>
-     <h3>Welcome {currentUser.name}!</h3>
-     ProfileComponent</div>
-  )
+      {isEdit ?(<ProfileEdit onEdit={onEdit} currentUser={currentUser}/>)  : (<ProfileCard currentUser={currentUser} onEdit={onEdit}/>)}
+    </div>
+  );
 }

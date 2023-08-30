@@ -5,7 +5,7 @@ import { app } from "./firebaseConfig"
 import './index.scss'
 import Login from './Pages/Login.jsx'
 import Post from './Pages/Post.jsx'
-import Profile from './Pages/Profile.jsx'
+// import Profile from './Pages/Profile.jsx'
 import Register from './Pages/Register.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,6 +14,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ProfileLayout from './Layout/ProfileLayout'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile/>,
+    element: <ProfileLayout/>,
   },
 ]);
 

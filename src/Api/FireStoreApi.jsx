@@ -1,6 +1,5 @@
 import { firestore } from "../firebaseConfig"
 import { addDoc, collection,onSnapshot,query, where,doc,updateDoc } from "firebase/firestore"
-import { useRef } from "react"
 import { toast } from "react-toastify"
 
 let dbRef = collection(firestore,"posts")
@@ -42,36 +41,32 @@ export const postUserData = (object) =>{
  })
 }
 
-// get user data from firestore
+
+// Get Current User from Firestore
 export const getCurrentUser = (setCurrentUser) => {
- let currEmail = localStorage.getItem('userEmail')
- onSnapshot(userRef, (response)=>{
-  setCurrentUser(
-   response.docs.map((docs)=>{
-    return {...docs.data(),userId:docs.id}
-   }).filter((item)=>{
-    return item.email ===currEmail
-   })[0]
-  )
- })
-}
+  onSnapshot(userRef, (response) => {
+    setCurrentUser(
+      response.docs
+        .map((docs) => {
+          return { ...docs.data(), id: docs.id };
+        })
+        .filter((item) => {
+          return item.email === localStorage.getItem("userEmail");
+        })[0]
+    );
+  });
+};
 
-// import { doc, updateDoc } from "firebase/firestore";
-// import { toast } from "react-toastify";
 
-// export const editProfile = (userRef, userId, payload) => {
-//   console.log("Edit Profile - userId:", userId);
-//   if (!userId) {
-//     console.error("editProfile - userId is empty or undefined");
-//     return;
-//   }
+// Edit UserProfile Inputs
+export const editProfile = (id, payload) => {
+  let userToEdit = doc(userRef, id);
 
-//   const userToEdit = doc(userRef, userId);
-//   updateDoc(userToEdit, payload)
-//     .then(() => {
-//       toast.success("Profile has been successfully edited");
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+  updateDoc(userToEdit, payload)
+    .then(() => {
+      toast.success("Profile has been updated successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

@@ -1,12 +1,22 @@
-import Topbar from "../Component/Common/Topbar"
 import ProfileComponent from "../Component/ProfileComponent"
+import React, { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConfig";
+import Loader from "../Component/Common/Loader"
 
-
-export default function Profile() {
-  return (
-    <div>Profile
-     <Topbar/>
-     <ProfileComponent/>
-    </div>
-  )
+export default function Profile({ currentUser }) {
+  const [loading, setLoading] = useState(true);
+  let navigate = useNavigate();
+  
+  useEffect(() => {
+    onAuthStateChanged(auth, (res) => {
+      if (!res?.accessToken) {
+        navigate("/");
+      } else {
+        setLoading(false);
+      }
+    });
+  }, []);
+  return loading ? <Loader /> : <ProfileComponent currentUser={currentUser} />;
 }
