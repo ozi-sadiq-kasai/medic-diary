@@ -1,5 +1,5 @@
 import { firestore } from "../firebaseConfig"
-import { addDoc, collection,onSnapshot,query, where } from "firebase/firestore"
+import { addDoc, collection,onSnapshot,query, where,doc,updateDoc } from "firebase/firestore"
 import { useRef } from "react"
 import { toast } from "react-toastify"
 
@@ -16,17 +16,6 @@ export const PostPost=(object)=> {
       console.log(err);
     });
 };
-
-
-
-// get post from firestore database
-// export const getPosts = (setAllPosts) =>{
-//  onSnapshot(dbRef,(response)=>{
-//   setAllPosts(response.docs.map((doc)=>{
-//    return {...doc.data(),id:doc.id}
-//   }))
-//  })}
-
 
 
 //get post from firestore database based on email
@@ -67,3 +56,22 @@ export const getCurrentUser = (setCurrentUser) => {
  })
 }
 
+// import { doc, updateDoc } from "firebase/firestore";
+// import { toast } from "react-toastify";
+
+// export const editProfile = (userRef, userId, payload) => {
+//   console.log("Edit Profile - userId:", userId);
+//   if (!userId) {
+//     console.error("editProfile - userId is empty or undefined");
+//     return;
+//   }
+
+//   const userToEdit = doc(userRef, userId);
+//   updateDoc(userToEdit, payload)
+//     .then(() => {
+//       toast.success("Profile has been successfully edited");
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };

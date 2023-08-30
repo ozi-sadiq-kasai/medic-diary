@@ -2,7 +2,7 @@ import { RegisterApi } from "../Api/LoginApi"
 import { useState } from "react"
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { postUserData } from "../Api/FireStoreApi";
+import { postUserData } from "../Api/FirestoreApi";
 
 const RegisterComponent = () => {
  const navigate = useNavigate();

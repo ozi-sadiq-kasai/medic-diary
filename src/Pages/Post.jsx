@@ -5,7 +5,7 @@ import { auth } from "../firebaseConfig"
 import { useNavigate } from "react-router-dom";
 import Topbar from "../Component/Common/Topbar";
 import Loader from "../Component/Common/Loader";
-import {getCurrentUser } from "../Api/FireStoreApi"
+import {getCurrentUser } from "../Api/FirestoreApi"
 
 
 

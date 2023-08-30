@@ -1,5 +1,5 @@
-import { useState,useMemo, useEffect } from 'react';
-import { PostPost,getPosts } from "../../Api/FireStoreApi"
+import { useState,useEffect } from 'react';
+import { PostPost,getPosts } from "../../Api/FireStoreApi";
 import '../../Sass/PostUpdate.scss'
 import ModalComponent from "./Modal"
 import PostCard from './PostCard';
