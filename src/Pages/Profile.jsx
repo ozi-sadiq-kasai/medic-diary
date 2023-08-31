@@ -1,4 +1,5 @@
 import ProfileComponent from "../Component/ProfileComponent"
+import "../Sass/ProfileCard.scss"
 import React, { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -18,5 +19,8 @@ export default function Profile({ currentUser }) {
       }
     });
   }, []);
-  return loading ? <Loader /> : <ProfileComponent currentUser={currentUser} />;
+  return loading ? <Loader />  : <ProfileComponent currentUser={currentUser} />;
+ 
+  
+  
 }

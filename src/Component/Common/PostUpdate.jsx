@@ -74,7 +74,7 @@ export default function PostUpdate({currentUser}) {
         {allPosts.map((posts) => {
           return (
             <div key={posts.id}>
-             <PostCard posts={posts}/>
+             <PostCard posts={posts} currentUser={currentUser}/>
             </div>
           );
         })}

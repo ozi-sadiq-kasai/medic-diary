@@ -1,6 +1,6 @@
 import '../../Sass/PostCard.scss'
 
-export default function PostCard({posts}) {
+export default function PostCard({posts,currentUser}) {
    const formattedDate = new Date(posts.timeStamp).toLocaleString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -12,7 +12,7 @@ export default function PostCard({posts}) {
   return (
    <div className="post-card">
     <div className="postCard-time">
-     <p className="postCard-name">{posts.userName}</p>
+     <p className="postCard-name">{currentUser.name}</p>
      <p className="postCard-date">{formattedDate}</p>
     </div>
     <p className="postCard-post">Blood Pressue: {posts.bloodPressure}</p>

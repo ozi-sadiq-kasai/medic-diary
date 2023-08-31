@@ -1,5 +1,5 @@
 import { Space, Spin } from 'antd';
-// import "../../Sass/Loader.scss"
+import "../../Sass/Loader.scss"
 export default function Loader() {
  return(
   <div className="loader">

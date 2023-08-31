@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { editProfile } from "../../Api/FireStoreApi"
-
+import "../../Sass/ProfileEdit.scss"
 export default function ProfileEdit({onEdit,currentUser}) {
 
 
@@ -38,6 +38,31 @@ export default function ProfileEdit({onEdit,currentUser}) {
      placeholder="Gender"
      onChange={getInput}
      name="gender" />
+     <input
+     type="text"
+     placeholder="Genotype"
+     onChange={getInput}
+     name="genotype" />
+     <input
+     type="text"
+     placeholder="Blood Group"
+     onChange={getInput}
+     name="bloodGroup" />
+     <input
+     type="phone"
+     placeholder="Phone Number"
+     onChange={getInput}
+     name="phoneNumber" />
+     <input
+     type="text"
+     placeholder="Next of Kin"
+     onChange={getInput}
+     name="nextOfKin" />
+     <input
+     type="text"
+     placeholder="Next of Kin Phone Number"
+     onChange={getInput}
+     name="nextOfKinPhoneNumber"/>
       
     </div>
       <button onClick={updateProfileData}>Save Edit</button>
