@@ -1,4 +1,31 @@
+// *{
+//  padding:0;
+//  margin:0;
+//  box-sizing: border-box;
+// }
+
 .topbar-main{
- border: 1px solid #000;
+ padding: 0 5px;
  width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background-color:  #FBFBFB;
+ 
+ .logo{
+  width: 80px;
+ }
+ .icons{
+  min-width: 150px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+ }
+ .icon{
+   color:#51D5C1;
+   cursor: pointer;
+ }
+ .icon:hover{
+  color:#4160AF;
+ }
 }

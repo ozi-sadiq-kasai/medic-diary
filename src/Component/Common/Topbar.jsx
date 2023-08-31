@@ -5,11 +5,11 @@ import { AiOutlineHome } from "react-icons/ai"
 import { RxPerson } from "react-icons/rx"
 import Popup from "./Popup"
 import { BiLogOut } from "react-icons/bi"
+import logo from "../../assets/logo.png"
 
 
 
-
-export default function Topbar() {
+export default function Topbar({currentUser}) {
  const [popupVisible,setPopupVisible] = useState(false)
  let navigate = useNavigate()
 
@@ -21,17 +21,22 @@ export default function Topbar() {
       {
        popupVisible ?(<div className="popup-position"><Popup/></div>):(<></>)
       }
-     <h1 className="logo">Medic-Diary</h1>
+     <img src={logo} alt="logo" className="logo"/>
+     <h3>Welcome {currentUser.name}</h3>
      <div className="icons">
-      <BiLogOut
-       size={33}
-       onClick={displayPopup}/>
       <AiOutlineHome
-       size={33}
-       onClick={()=>{navigate('/post')}}/>
+       size={27}
+       onClick={()=>{navigate('/post')}}
+       className="icon"/>
       <RxPerson 
-        size={30}
-        onClick={()=>{navigate("/profile")}}/>
+        size={24}
+        onClick={()=>{navigate("/profile")}}
+        className="icon"/>
+       <BiLogOut
+       size={27}
+       onClick={displayPopup}
+       className="icon"
+       />
      </div>
     </div>
   )

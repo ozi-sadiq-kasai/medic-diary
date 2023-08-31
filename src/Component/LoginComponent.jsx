@@ -32,15 +32,15 @@ export default function LoginComponent() {
       email: "",     // Clear email field
       password: ""   // Clear password field
     });
-    // console.error("Login error", error);
   }
 };
 
   return (
-    <div>LoginComponent
-     <h1>Sign into Medic Diary</h1>
+    <div className="login-main">
+     {/* <h1>Sign into Medic Diary</h1> */}
      <div className= "login-inputs">
-      <input 
+      <h1 className="headline">Sign into <span className="headline-span">Medic-Diary</span></h1>
+       <input 
       type="email"
       name="email"
       placeholder="Enter Email"
@@ -54,9 +54,11 @@ export default function LoginComponent() {
          onChange={handleInputChange}
          value={input.password}
        />
+ 
+      <button onClick={handleLogin}>Sign in</button>
+     <p className="register">New to Medic-Diary? <Link to="/register">Register Now</Link></p>
      </div>
-     <button onClick={handleLogin}>click</button>
-     <p>New to Medic Diary? <Link to="/register">Register Now</Link></p>
+    
    </div>
   )
 }

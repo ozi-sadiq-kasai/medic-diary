@@ -7,10 +7,10 @@ export default function ProfileCard({currentUser,onEdit}) {
      <div>
       <button onClick={onEdit}>Edit</button>
      </div>
-     <h3>{currentUser.name}</h3>
-     <p>{currentUser.email}</p>
-     <p>{currentUser.age}</p>
-     <p>{currentUser.gender}</p>
+     <h3>Name: {currentUser.name}</h3>
+     <p>Email: {currentUser.email}</p>
+     <p>Age: {currentUser.age}</p>
+     <p>Gender: {currentUser.gender}</p>
  
     </div>
   </>

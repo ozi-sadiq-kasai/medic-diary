@@ -1,19 +1,34 @@
 import {  Modal,Button } from 'antd';
 import "../../Sass/Modal.scss"
-const ModalComponent= ({modalOpen,setModalOpen,setPost,post,sendPost}) => {
+const ModalComponent= ({
+ modalOpen,
+ setModalOpen,
+ setPost,post,
+ sendPost,
+ bloodPressure,
+ setBloodPressure,
+ bloodSugar,
+ setBloodSugar,
+ prescription,
+ setPrescription}) => {
   return (
     <>
       <Modal
-        title="How is your health today?"
+        title="Enter Vitals"
         centered
         open={modalOpen}
         onOk={() => setModalOpen(false)}
         onCancel={() => setModalOpen(false)}
+        width={500}
         footer={[
           <Button 
           key="submit"
           type="primary"
-          disabled ={post.length > 0 ? false : true}
+          disabled ={
+           post.length ||
+           bloodPressure.length ||
+           bloodSugar.length ||
+           prescription.lenth > 0 ? false : true}
           onClick={sendPost}>
             Post
           </Button>,
@@ -22,10 +37,35 @@ const ModalComponent= ({modalOpen,setModalOpen,setPost,post,sendPost}) => {
         <input 
         className= "modal-input"
         type="text"
-        placeholder="Let's talk about it...."
+        placeholder="Doctor's Diagnosis"
         onChange={(event) =>setPost(event.target.value)}
         value={post}
+        width={200}
          />
+        <input 
+        className= "modal-input"
+        type="text"
+        placeholder="Enter Blood Pressure"
+        onChange={(event) =>setBloodPressure(event.target.value)}
+        value={bloodPressure}
+        width={200}
+         />
+        <input 
+        className= "modal-input"
+        type="text"
+        placeholder="Enter Blood Sugar Level"
+        onChange={(event) =>setBloodSugar(event.target.value)}
+        value={bloodSugar}
+        width={200}
+         />  
+        <input 
+        className= "modal-input"
+        type="text"
+        placeholder="Doctor's Prescription"
+        onChange={(event) =>setPrescription(event.target.value)}
+        value={prescription}
+        width={200}
+         /> 
       </Modal>
     </>
   ); 

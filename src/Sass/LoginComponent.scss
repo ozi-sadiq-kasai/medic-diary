@@ -1,3 +1,40 @@
-body{
-
+.login-main{
+ border: 1px solid red;
+ width: 100%;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+.login-inputs{
+  border: 1px solid #c2bfbf;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 100px;
+  padding: 10px;
+  height: 300px;
+  border-radius: 7px;
+  }
+ .headline{
+  font-family: Lato;
+  font-size: 22px;
+  padding: 0 5px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  }
+  input{
+   border: 1px solid #000;
+   margin-bottom: 10px;
+   padding: 10px 5px;
+  }
+  button{
+   padding: 5px 25px;
+  }
+  .headline-span{
+   color:blue
+  }
+  .register{
+   font-size: 11px;
+  }
 }

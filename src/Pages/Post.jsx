@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Topbar from "../Component/Common/Topbar";
 import Loader from "../Component/Common/Loader";
 import {getCurrentUser } from "../Api/FireStoreApi"
-
+import "../Sass/Post.scss"
 
 
 export default function Post() {
@@ -26,14 +26,14 @@ useEffect(()=>{
  return () => unsubscribe();
 },[])
 return(
-<>
+<div className="post-main">
 {loading ? <Loader/> :(
  <>
-   <Topbar />
+   <Topbar currentUser={currentUser} />
    <PostComponent currentUser={currentUser}/>
  </>
 )}
-</> 
+</div> 
 )
 }
 

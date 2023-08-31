@@ -11,10 +11,14 @@ export default function PostCard({posts}) {
   });
   return (
    <div className="post-card">
-
-    <p>{posts.post}</p>
-     <p>{formattedDate}</p>
-     <p>{posts.userName}</p>
+    <div className="postCard-time">
+     <p className="postCard-name">{posts.userName}</p>
+     <p className="postCard-date">{formattedDate}</p>
+    </div>
+    <p className="postCard-post">Blood Pressue: {posts.bloodPressure}</p>
+    <p className="postCard-post">Blood Sugar Level: {posts.bloodSugar}</p>
+    <p className="postCard-post">Doctor's Diagnosis: {posts.post}</p>
+    <p className="postCard-post">Medication: {posts.prescription}</p>
     </div>
    
    

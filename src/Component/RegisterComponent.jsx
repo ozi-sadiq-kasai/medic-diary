@@ -17,8 +17,9 @@ const RegisterComponent = () => {
  try {
   let response = await  RegisterApi(input.email,input.password)
   toast.success('Account Created!')
+  
   // send data to user collection in firestore
-  postUserData({name:input.name,email:input.email,})
+  postUserData({name:input.name,email:input.email})
   localStorage.setItem("userEmail",response.user.email)
   setInput({
    name:"",

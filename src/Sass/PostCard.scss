@@ -1,5 +1,27 @@
 .post-card{
- border: 1px solid #000;
- width: 40%;
+ border: 1px solid #adb5bd;
+ width: 17rem;
+ min-height: 7rem;
+ box-shadow: 2px 5px 5px 2px rgba(0,0,0,0.12);
+-webkit-box-shadow: 2px 5px 5px 2px rgba(0,0,0,0.12);
+-moz-box-shadow: 2px 5px 5px 2px rgba(0,0,0,0.12);
+  padding: 5px;
  margin: 20px auto;
+ background-color:white;
+ .postCard-time{
+  display: flex;
+  justify-content: space-between;
+  color:#adb5bd ;
+ }
+.postCard-name{
+  font-size: 0.7rem;
+ }
+ .postCard-date{
+  font-size: 0.7rem;
+ }
+ .postCard-post{
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #343a40;
+ }
 }

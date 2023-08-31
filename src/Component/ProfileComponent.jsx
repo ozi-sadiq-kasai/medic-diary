@@ -9,7 +9,7 @@ export default function ProfileComponent({ currentUser }) {
   setIsEdit(!isEdit)
  }
   return (
-    <div>
+    <div className="profileComp-main">
       {isEdit ?(<ProfileEdit onEdit={onEdit} currentUser={currentUser}/>)  : (<ProfileCard currentUser={currentUser} onEdit={onEdit}/>)}
     </div>
   );
