@@ -1,12 +1,30 @@
+// .loader {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+//   flex-direction: column;
+//   gap: 10px;
+ 
+//  padding: 30px 50px;
+
+//   p {
+//     font-family: system-ui;
+//     font-weight: 500;
+//     color: rgba(144, 218, 231, 0.9);
+//     font-size: 20px;
+//   }
+ 
+// }
+
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
-  gap: 10px;
- 
-
+  gap: 20px;
+  padding: 30px 50px;
 
   p {
     font-family: system-ui;
@@ -14,5 +32,11 @@
     color: rgba(144, 218, 231, 0.9);
     font-size: 20px;
   }
- 
+
+  .custom-spin {
+   margin-bottom: 20px;
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+  
+  }
 }

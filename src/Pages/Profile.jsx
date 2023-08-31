@@ -20,6 +20,7 @@ export default function Profile({ currentUser }) {
     });
   }, []);
   return loading ? <Loader />  : <ProfileComponent currentUser={currentUser} />;
+  
  
   
   
