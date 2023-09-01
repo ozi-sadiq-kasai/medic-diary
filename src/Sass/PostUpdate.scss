@@ -1,8 +1,9 @@
 .postupdate-main{
- margin-top: 50px;
+ margin-top: 30px;
  .postupdate-img{
  max-width:1500px;
  width: 100%;
+
  }
  .postUpdate-tagLine{
   color: #4160AF;
@@ -24,12 +25,13 @@
 }
 .postupdate-button{
   width: 70%;
-  padding: 7px 10px;
+  padding: 9px 10px;
   text-align: center;
-  border-radius:8px;
+  border-radius:6px;
   cursor: pointer;
   color: #51D5C1;
-   background-color:#4160AF;
+  font-weight: 600;
+  background-color:#4160AF;
   border: 1px solid rgb(197, 195, 195);
  }
  .postupdate-button:hover{

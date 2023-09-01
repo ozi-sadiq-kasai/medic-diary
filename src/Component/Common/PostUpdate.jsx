@@ -53,6 +53,7 @@ export default function PostUpdate({currentUser}) {
   return (
     <div className= "postupdate-main">
      <img src={pressure} alt="man taking blood pressure" className="postupdate-img" />
+     <p className="postUpdate-tagLine"> Your body vitals, effortlessly tracked with a single click!</p>
      <div className="post-update">
       <button className="postupdate-button" onClick={() => setModalOpen(true)}>Enter your health vitals</button>
      </div>

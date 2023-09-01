@@ -56,7 +56,7 @@ export default function LoginComponent() {
        />
  
       <button onClick={handleLogin}>Sign in</button>
-     <p className="register">New to Medic-Diary? <Link to="/register">Register Now</Link></p>
+     <p className="register">New to Medic-Diary? <Link to="/register" className="registerLink">Register Now</Link></p>
      </div>
     
    </div>

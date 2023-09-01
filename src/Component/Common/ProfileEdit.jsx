@@ -16,11 +16,11 @@ export default function ProfileEdit({onEdit,currentUser}) {
  await onEdit()
  }
   return (
-    <div>ProfileEdit
-     <div>
-      <button onClick={onEdit}>Back tO Profile</button>
+    <div className="profile-edit">
+     <div className="profileEdit-div">  
+      <p onClick={onEdit} className="profileEdit-back">Back to Profile</p>
      </div>
-    <div className="Edit-inputs">
+    <div className="profileEdit-inputs">
        <input 
       type="text"
       placeholder ="Name"
@@ -65,7 +65,7 @@ export default function ProfileEdit({onEdit,currentUser}) {
      name="nextOfKinPhoneNumber"/>
       
     </div>
-      <button onClick={updateProfileData}>Save Edit</button>
+      <button onClick={updateProfileData} className="profileEdit-btn">Save Edit</button>
     </div>
   )
 }

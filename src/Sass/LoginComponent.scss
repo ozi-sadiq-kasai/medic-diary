@@ -1,5 +1,4 @@
 .login-main{
- border: 1px solid red;
  width: 100%;
  height: 100vh;
  display: flex;
@@ -7,34 +6,58 @@
  align-items: center;
  flex-direction: column;
 .login-inputs{
-  border: 1px solid #c2bfbf;
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-width: 100px;
+  width: 85%;
+  max-width: 400px;
   padding: 10px;
-  height: 300px;
+  // min-height: 60vh;
   border-radius: 7px;
   }
  .headline{
-  font-family: Lato;
   font-size: 22px;
-  padding: 0 5px;
+  // padding: 0 20px;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin: 40px 0;
+  color: #343a40;
   }
   input{
-   border: 1px solid #000;
-   margin-bottom: 10px;
-   padding: 10px 5px;
+   border: 1px solid #c2bfbf;
+   margin-bottom: 15px;
+   padding: 10px 25px;
+   color: #343a40;
+   width: 70%;
+  max-width: 350px;
   }
-  button{
-   padding: 5px 25px;
+  input:focus{
+   outline: none;
   }
   .headline-span{
-   color:blue
+   color:#4160AF;
   }
   .register{
    font-size: 11px;
+   margin-top: 10px;
   }
+  .registerLink{
+   color:#4160AF;
+   text-decoration :none;
+  }
+  button{
+  width: 55%;
+  padding: 9px 10px;
+  text-align: center;
+  border-radius:6px;
+  cursor: pointer;
+  color: #51D5C1;
+  font-weight: 600;
+  background-color:#4160AF;
+  border: 1px solid rgb(197, 195, 195);
+ }
+ button:hover{
+  background-color: #51D5C1;
+  color:#4160AF;
+ }
+
 }

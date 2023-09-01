@@ -1,5 +1,14 @@
 import { firestore } from "../firebaseConfig"
-import { addDoc, collection,onSnapshot,query, where,doc,updateDoc } from "firebase/firestore"
+import {
+  addDoc, 
+  collection,
+  onSnapshot,
+  query,
+  where,
+  doc,
+  updateDoc,
+  deleteDoc,
+  orderBy } from "firebase/firestore"
 import { toast } from "react-toastify"
 
 let dbRef = collection(firestore,"posts")
@@ -21,7 +30,8 @@ export const PostPost=(object)=> {
 export const getPosts = (setAllPosts, userEmail) => {
   const userPostsQuery = query(
     dbRef,
-    where("userEmail", "==", userEmail)
+    where("userEmail", "==", userEmail),
+    orderBy("timeStamp")
   );
    onSnapshot(userPostsQuery, (response) => {
     setAllPosts(
@@ -43,19 +53,35 @@ export const postUserData = (object) =>{
 
 
 // Get Current User from Firestore
+// export const getCurrentUser = (setCurrentUser) => {
+//   onSnapshot(userRef, (response) => {
+//     setCurrentUser(
+//       response.docs
+//         .map((docs) => {
+//           return { ...docs.data(), id: docs.id };
+//         })
+//         .filter((item) => {
+//           return item.email === localStorage.getItem("userEmail");
+//         })[0]
+//     );
+//   });
+// };
+
+// Get Current User from Firestore
 export const getCurrentUser = (setCurrentUser) => {
-  onSnapshot(userRef, (response) => {
+  // Update this query to get the current user based on their email
+  const userEmail = localStorage.getItem("userEmail");
+  const userQuery = query(userRef, where("email", "==", userEmail));
+
+  onSnapshot(userQuery, (response) => {
     setCurrentUser(
-      response.docs
-        .map((docs) => {
-          return { ...docs.data(), id: docs.id };
-        })
-        .filter((item) => {
-          return item.email === localStorage.getItem("userEmail");
-        })[0]
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })[0] // Assuming there is only one user with a given email
     );
   });
 };
+
 
 
 // Edit UserProfile Inputs
@@ -70,3 +96,14 @@ export const editProfile = (id, payload) => {
       console.log(err);
     });
 };
+
+// Delete post
+export const deletePost = (id) =>{
+ let docToDelete = doc(dbRef,id)
+ try {
+  deleteDoc(docToDelete)
+  toast.success("Post has been Deleted!");
+ } catch (error) {
+   console.log(error);
+ }
+}

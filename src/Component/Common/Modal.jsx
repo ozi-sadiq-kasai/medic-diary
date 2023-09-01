@@ -34,7 +34,8 @@ const ModalComponent= ({
           </Button>,
         ]}
       >
-        <input 
+        <div className="modalDiv-input">
+         <input 
         className= "modal-input"
         type="text"
         placeholder="Doctor's Diagnosis"
@@ -66,6 +67,7 @@ const ModalComponent= ({
         value={prescription}
         width={200}
          /> 
+        </div>
       </Modal>
     </>
   ); 

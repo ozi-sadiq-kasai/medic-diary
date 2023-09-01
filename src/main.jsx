@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { app } from "./firebaseConfig"
-// import App from './App.jsx'
+import App from './App.css'
 import './index.scss'
 import Login from './Pages/Login.jsx'
 import Post from './Pages/Post.jsx'

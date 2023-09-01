@@ -1,8 +1,13 @@
+.modalDiv-input{
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
 .modal-input{
- border: none;
+ border: 1px solid #adb5bd;
+ padding: 10px 0;
+ border-radius: 3px;
 }
 .modal-input:focus{
  outline: none;
-
-
 }

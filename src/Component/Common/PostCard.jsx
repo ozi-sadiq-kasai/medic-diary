@@ -1,4 +1,6 @@
 import '../../Sass/PostCard.scss'
+import { BiTrash } from 'react-icons/bi';
+import { deletePost } from '../../Api/FireStoreApi';
 
 export default function PostCard({posts,currentUser}) {
    const formattedDate = new Date(posts.timeStamp).toLocaleString('en-US', {
@@ -14,6 +16,7 @@ export default function PostCard({posts,currentUser}) {
     <div className="postCard-time">
      <p className="postCard-name">{currentUser.name}</p>
      <p className="postCard-date">{formattedDate}</p>
+     <BiTrash onClick={() => deletePost(posts.id)} style={{cursor:"pointer"}}/>
     </div>
     <p className="postCard-post">Blood Pressue: {posts.bloodPressure}</p>
     <p className="postCard-post">Blood Sugar Level: {posts.bloodSugar}</p>

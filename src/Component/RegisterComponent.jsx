@@ -3,6 +3,7 @@ import { useState } from "react"
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { postUserData } from "../Api/FireStoreApi";
+import  "../Sass/Register.scss"
 
 const RegisterComponent = () => {
  const navigate = useNavigate();
@@ -41,7 +42,8 @@ const RegisterComponent = () => {
 
 
   return (
-    <div>RegisterComponent
+    <div className="register-Main">
+      <h1 className="headline">Register with <span className="headline-span">Medic-Diary</span></h1>
      <div className="login-inputs"> 
       <input 
        type="text"

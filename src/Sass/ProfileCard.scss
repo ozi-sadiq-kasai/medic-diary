@@ -1,5 +1,38 @@
 .profileCard-info{
- border: 1px solid #000;
- background-color: #FBFBFB;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: center;
+ margin-top: 20px ;
  min-height: 70vh;
+.profileCard-list li:nth-child(even) {
+  background-color: lightgray;
+}
+
+.profileCard-list li:nth-child(odd) {
+  background-color: white; 
+}
+
+ .profileCard-list{
+  width: 100%;
+  padding: 10px;
+  margin: 30px auto;
+ }
+ li{
+  padding:10px 5px;
+  color: #343a40;
+ }
+ .edit-btn{
+  width: 13rem;
+  padding: 0.7rem 0;
+  background-color: #4160AF;
+  cursor: pointer;
+  color: #64EBB6;
+  font-weight:600;
+  border: none;
+ }
+ .edit-btn:hover{
+  color: #4160AF;
+  background-color: #64EBB6;
+ }
 }

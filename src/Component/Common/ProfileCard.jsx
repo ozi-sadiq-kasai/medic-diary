@@ -3,7 +3,7 @@ export default function ProfileCard({currentUser,onEdit}) {
   return (
   <>
    <div className="profileCard-info">
-       <ul>
+       <ul className="profileCard-list">
         <li><h3>Name: {currentUser.name}</h3></li>
         <li><p>Email: {currentUser.email}</p></li>
         <li><p>Gender: {currentUser.gender}</p></li>
@@ -14,7 +14,7 @@ export default function ProfileCard({currentUser,onEdit}) {
         <li><p>NextofKin Phone Number: {currentUser.nextOfKinPhone}</p></li>
        </ul>
       <div>
-      <button onClick={onEdit} className="Edit-btn">Edit</button>
+      <button onClick={onEdit} className="edit-btn">Edit</button>
      </div>
     </div>
   </>
