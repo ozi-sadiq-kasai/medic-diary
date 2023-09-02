@@ -13,7 +13,7 @@ export default function ProfileCard({currentUser,onEdit}) {
         <li><p>NextofKin: {currentUser.nextOfKin}</p></li>
         <li><p>NextofKin Phone Number: {currentUser.nextOfKinPhone}</p></li>
        </ul>
-      <div>
+      <div  className="editDiv-btn">
       <button onClick={onEdit} className="edit-btn">Edit</button>
      </div>
     </div>

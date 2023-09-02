@@ -1,33 +1,48 @@
-.topbar-main{
- padding: 0 5px;
- width: 100%;
- display: flex;
- justify-content: space-between;
- align-items: center;
- background-color:  #FBFBFB;
- 
- .logo{
-  width: 150px;
- }
- .icons{
-  min-width: 150px;
-  display: flex;
-  gap: 10px;
-  justify-content: space-around;
- }
- .icon{
-   color:#51D5C1;
-   cursor: pointer;
- }
- .icon:hover{
-  color:#4160AF;
- }
- .topbar-name{
-  font-size: 15px;
-  font-weight: 800;
+.topbar-main {
   width: 100%;
-  text-align: center;
-  padding: 10px;
-  color:#adb5bd ;
- }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FBFBFB;
+  gap: 5px;
+  .logo {
+    width: 170px;
+  }
+  .icons {
+    min-width: 150px;
+    display: flex;
+    gap: 10px;
+    margin-right:30px;
+    justify-content: space-around;
+    .icon {
+      color: #51D5C1;
+      cursor: pointer;
+      &:hover {
+        color: #4160AF;
+      }
+    }
+  }
+  .topbar-name {
+    font-size: 15px;
+    font-weight: 800;
+    width: 50%;
+    text-align: center;
+    color: #adb5bd;
+  }
+
+  $desktop-breakpoint: 768px;
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    .logo {
+      width: 180px;
+      max-height: 150px;
+    }
+
+    .topbar-name {
+      font-size: 30px
+    }
+  }
+ 
+
+
 }

@@ -1,16 +1,18 @@
 .profile-edit{
  display: flex;
  flex-direction: column;
- min-height: 70vh;
- margin-top: 20px;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 1000px;
 
  .profileEdit-inputs{
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
  }
-
  input{
-  width: 270px;
+  width: 100%;
+  max-width: 500px;
   margin: 10px auto;
   padding: 15px 0;
   color: #343a40;
@@ -29,6 +31,7 @@
   font-weight:600;
   border: none;
   margin: 10px auto;
+  border-radius: 3px;
 }
 .profileEdit-btn:hover{
   color: #4160AF;
@@ -46,3 +49,4 @@
 }
 
 }
+

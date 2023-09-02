@@ -9,14 +9,15 @@
   color: #4160AF;
   text-align: center;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   padding: 5px;
  }
  .post-update{
  border: 1px solid rgb(239, 234, 234);
  background-color: whitesmoke;
  border-radius: 5px;
- width: 300px;
+ width: 70%;
+ max-width: 500px;
  padding: 20px 10px;
  margin: 15px auto;
  display: flex;
@@ -25,19 +26,25 @@
 }
 .postupdate-button{
   width: 70%;
-  padding: 9px 10px;
+  padding: 13px 0px;
   text-align: center;
   border-radius:6px;
   cursor: pointer;
   color: #51D5C1;
-  font-weight: 600;
+  font-weight: 400;
   background-color:#4160AF;
   border: 1px solid rgb(197, 195, 195);
+  font-size: 15px;
  }
  .postupdate-button:hover{
   background-color: #51D5C1;
   color:#4160AF;
  }
-
+@media screen and (min-width: 768px){
+ .postUpdate-tagLine{
+  font-size: 20px;
+ }
+}
 
 }
+
